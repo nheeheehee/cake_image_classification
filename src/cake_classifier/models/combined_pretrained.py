@@ -45,10 +45,10 @@ class Combined_Model(Model_Interface):
         x2 = self.model2(inputs)
         x = torch.concat([x1,x2], dim = 1)
 
-        # x = F.relu(self.dropout(self.fc1(x)))
-        # x = F.relu(self.dropout(self.fc2(x)))
-        # out = self.fc3(x)
-        out = self.fc(x)
+        x = F.relu(self.dropout(self.fc1(x)))
+        x = F.relu(self.dropout(self.fc2(x)))
+        out = self.fc3(x)
+        # out = self.fc(x)
 
         return out
 
