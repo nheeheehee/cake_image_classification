@@ -8,6 +8,12 @@ lib64/
 __pycache__
 *.egg-info
 _build
+*.jpg
+*.log
+*.deb
+*.deb.1
+artifact
+
 
 # Environments
 .env

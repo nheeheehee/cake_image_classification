@@ -15,10 +15,10 @@ class Pretrained(Model_Interface):
                 freeze: Union[bool, int] = False):
         super(Pretrained, self).__init__(num_classes, lr, dropout_rate)
         
-        # self.device = torch.device(
-        #     # 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        #     torch.cuda.current_device() if torch.cuda.is_available() else 'cpu'
-        # )
+        self.device = torch.device(
+            # 'cuda:0' if torch.cuda.is_available() else 'cpu'
+            torch.cuda.current_device() if torch.cuda.is_available() else 'cpu'
+        )
         
         # self.model = model_name
 

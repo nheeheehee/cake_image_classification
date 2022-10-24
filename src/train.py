@@ -4,7 +4,7 @@ import os
 from pyparsing import lru_cache 
 import torch
 
-from cake_classifier.config import MODEL_PARAMS, MODEL_PATH
+from cake_classifier.config import MODEL_PARAMS, MODEL_PATH, DEVICE
 from cake_classifier.dataset.make_dataset import DataManager
 from cake_classifier.utils import seed_everything
 from cake_classifier.classifier import Classifier
@@ -32,7 +32,7 @@ def get_argument_parser():
         help = "choice of model and whether to freeze the pretrained layers (default: pretrained_freeze).\
                 If an integer is specified with the model -> number of layers being froze (e.g. pretrained_30)",
         type = str,
-        default = "pretrained_freeze"
+        default = "combined_freeze"
     )
 
     # parser.add_argument(
@@ -108,7 +108,7 @@ def main():
     classifier.train(lr = lr, epochs = epochs)
 
     classifier.test(on_train_set = False)
-
+    
 
 if __name__ == "__main__":
 

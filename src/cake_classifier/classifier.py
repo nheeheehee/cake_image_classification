@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 from cake_classifier.dataset.make_dataset import DataManager
 
+
 class Classifier:
     def __init__(self, DataManager, model, load_model = False):
         """
@@ -24,10 +25,9 @@ class Classifier:
         if not os.path.exists(self.artifacts_dir):
             os.makedirs(self.artifacts_dir)
 
-        self.device = torch.device("cpu")
             # 'cuda:0' if torch.cuda.is_available() else 'cpu'
-            # torch.cuda.current_device() if torch.cuda.is_available() else 'cpu'
-        # )
+        self.device =   (torch.cuda.current_device() if torch.cuda.is_available() else 'cpu'
+        )
 
         # self.model = self.get_model() CHANGE TO GET MODEL
         # self.replace_model_last_layer(len(self.classes))

@@ -20,10 +20,10 @@ class Combined_Model(Model_Interface):
         else:
             self.freeze_list = [False] * len(model_name)
         
-        # self.device = torch.device(
-        # # 'cuda:0' if torch.cuda.is_available() else 'cpu'
-        # torch.cuda.current_device() if torch.cuda.is_available() else 'cpu')
-        self.device = torch.device("cpu")
+        self.device = torch.device(
+        # 'cuda:0' if torch.cuda.is_available() else 'cpu'
+        torch.cuda.current_device() if torch.cuda.is_available() else 'cpu')
+        self.device = self.device
         
         self.model1 = Pretrained(model_name[0], freeze = self.freeze_list[0])
         self.model2 = Pretrained(model_name[1], freeze = self.freeze_list[1])
@@ -41,6 +41,7 @@ class Combined_Model(Model_Interface):
         self.dropout = nn.Dropout(p = dropout_rate)
 
     def forward(self, inputs):
+        inputs = inputs.to(self.device)
         x1 = self.model1(inputs)
         x2 = self.model2(inputs)
         x = torch.concat([x1,x2], dim = 1)
