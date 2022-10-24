@@ -1,4 +1,5 @@
 # Classifier of Cake Types
+-----------------------------------
 
 Using pretrained models (VGG, ResNet, MobileNet, InceptionNet, EfficientNet) to classify photos of 5 different types of cakes:
 Chocolate, Red Velvet, Apple Pie, French Toast and Garlic Bread.
