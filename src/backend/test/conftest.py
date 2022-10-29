@@ -11,12 +11,14 @@ def get_settings_override() -> BaseSettings:
     ''' returns: BaseSettings: _description_ '''
     return Settings(environment = "testing")
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope = "module")
 def test_app():
     '''Generate application 
+        
         Yields:
             _type_: _description_
-        '''
+    
+    '''
     app = create_app()
     app.dependency_overrides[get_settings] = get_settings_override
 
