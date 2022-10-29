@@ -72,7 +72,7 @@ class Predictor:
         probs = torch.max(logits, dim = 1)
         pred = torch.argmax(logits, dim = 1)
 
-        return {"prediction": pred.item(), "probs": probs[0] }
+        return {"prediction": pred.item(), "probs": probs[0].item() }
     
     
 if __name__ == "__main__":

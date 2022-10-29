@@ -106,6 +106,7 @@ if __name__ == "__main__":
     # dataset.save_sample_images()
     
     x, y = dataset.get_sample_model_input()
+    print(dataset.class_to_idx)
     print(type(x), x.shape)
     print(type(y), y.shape)
     
