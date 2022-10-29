@@ -72,7 +72,10 @@ class Predictor:
         probs = torch.max(logits, dim = 1)
         pred = torch.argmax(logits, dim = 1)
 
-        return {"prediction": pred.item(), "probs": probs[0].item() }
+        d = {'apple_pie': 0, 'cheesecake': 1, 'chocolate_cake': 2, 'french_toast': 3, 'garlic_bread': 4}
+        actual_pred = list(d.keys())[list(d.values()).index(pred.item())]
+
+        return {"prediction": actual_pred, "probs": probs[0].item() }
     
     
 if __name__ == "__main__":

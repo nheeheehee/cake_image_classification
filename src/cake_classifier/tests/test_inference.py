@@ -17,7 +17,7 @@ def test_inference():
     output = predictor.predict(input)
 
     print(output)
-    assert output["prediction"] in list(range(10)), "Invalid Prediction"
+    assert output["prediction"] in ['apple_pie', 'cheesecake', 'chocolate_cake', 'french_toast', 'garlic_bread'], "Invalid Prediction"
     assert (output["probs"] <= 1) and (output["probs"] >= 0), "Invalid Probability"
 
 
