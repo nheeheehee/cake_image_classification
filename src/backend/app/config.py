@@ -4,7 +4,7 @@ from pydantic import BaseSettings
 from functools import lru_cache
 
 class Settings (BaseSettings):
-    '''base settings'''
+    '''BaseSettings'''
     environment: str = 'dev'
 
 @lru_cache

@@ -24,7 +24,7 @@ def hello():
 
 def get_env(settings: Settings = Depends(get_settings)):
     '''check env'''
-    return {'Env': Settings.environment}
+    return {'Env': settings.environment}
 
 @app.post("/predict")
 
